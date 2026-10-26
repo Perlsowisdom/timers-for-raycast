@@ -3,6 +3,7 @@ import { CommandLinkParams, CustomTimer } from "../backend/types";
 import { formatTime } from "../backend/formatUtils";
 import useTimers from "../hooks/useTimers";
 import RenameAction from "./RenameAction";
+import { shortcuts } from "../backend/shortcuts";
 
 const createPresetLink = (ctID: string): string => {
   const payload: CommandLinkParams = { timerID: ctID };
@@ -33,10 +34,7 @@ export default function CustomTimerListItem(props: { customTimer: CustomTimer; i
           <Action
             title="Delete Custom Timer"
             icon={Icon.Trash}
-            shortcut={{
-              modifiers: ["ctrl"],
-              key: "x",
-            }}
+            shortcut={shortcuts.stop}
             onAction={() => handleDeleteCT(props.id)}
           />
           <Action.CreateQuicklink

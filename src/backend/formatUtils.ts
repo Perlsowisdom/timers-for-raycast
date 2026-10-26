@@ -30,4 +30,13 @@ const secondsBetweenDates = (args: { d1?: Date | string; d2?: Date | string }) =
   );
 };
 
-export { formatTime, formatDateTime, secondsBetweenDates };
+const formatAlarmTime = (d: Date, now = new Date()) => {
+  const time = d.toLocaleTimeString([], { hour: "numeric", minute: "2-digit" });
+  if (d.toDateString() === now.toDateString()) return time;
+  const tomorrow = new Date(now);
+  tomorrow.setDate(now.getDate() + 1);
+  if (d.toDateString() === tomorrow.toDateString()) return `${time} tomorrow`;
+  return `${time} on ${formatDateTime(d).split(" ")[0]}`;
+};
+
+export { formatTime, formatDateTime, formatAlarmTime, secondsBetweenDates };

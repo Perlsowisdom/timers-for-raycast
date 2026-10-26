@@ -1,4 +1,5 @@
 import { Action, ActionPanel, Form, Toast, useNavigation } from "@raycast/api";
+import { renameAlarm } from "../backend/alarmBackend";
 import { renameStopwatch } from "../backend/stopwatchBackend";
 import { renameCustomTimer, renameTimer } from "../backend/timerBackend";
 import { showHudOrToast } from "../backend/utils";
@@ -20,6 +21,9 @@ function RenameView(props: RenameViewProps) {
       switch (props.originalFile) {
         case "customTimer":
           renameCustomTimer(props.ctID ? props.ctID : "-99", newName);
+          break;
+        case "alarm":
+          renameAlarm(props.ctID ? props.ctID : "-99", newName);
           break;
         case "stopwatch":
           renameStopwatch(props.ctID ? props.ctID : "-99", newName);

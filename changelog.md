@@ -1,5 +1,13 @@
 # Timers Changelog
 
+## [Windows support, alarms] - {PR_MERGE_DATE}
+
+- Timers, stopwatches and alarms now work on Windows (menu bar commands remain macOS-only)
+- Added "Set Alarm" and "Manage Alarms" commands for alarms that ring at a specific time of day
+- "Dismiss Ringing Timer" now also dismisses ringing alarms
+- Fixed timer names containing quotes breaking the alert notification on macOS
+- Fixed "Speak Timer Name" being used for every timer whenever it was the default sound, even for timers with a different sound
+
 ## [Chore] - 2025-01-14
 
 - Moved contributor to past contributors list
